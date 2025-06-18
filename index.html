@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>K–2 Reading Motivation Survey</title>
   <style>
     body {
@@ -23,14 +23,23 @@
       display: flex;
       justify-content: center;
       gap: 20px;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
     nav a {
       text-decoration: none;
       color: #4a90e2;
       font-weight: bold;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #2c6fb3;
     }
     main {
-      padding: 30px;
+      padding: 80px 30px 30px;
     }
     .survey-item {
       background: white;
@@ -45,13 +54,31 @@
     .options label {
       margin-right: 15px;
     }
-    .resources {
+    .resources, .downloads, .media {
       margin-top: 40px;
     }
     footer {
       text-align: center;
       padding: 20px;
       color: #777;
+    }
+    @media (max-width: 600px) {
+      nav {
+        flex-direction: column;
+        align-items: center;
+      }
+      main {
+        padding-top: 120px;
+      }
+    }
+    iframe {
+      width: 100%;
+      max-width: 600px;
+      height: 340px;
+      margin-top: 15px;
+      border: none;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
   </style>
 </head>
@@ -62,32 +89,50 @@
   </header>
 
   <nav>
-    <a href="#survey">Survey</a>
-    <a href="#resources">Resources</a>
-    <a href="#submit">Submit</a>
+    <a href="#survey">📝 Survey</a>
+    <a href="#resources">📚 Resources</a>
+    <a href="#submit">📤 Submit</a>
+    <a href="#media">🎥 Media</a>
   </nav>
 
   <main>
     <section id="survey">
       <h2>Survey Questions</h2>
-      <!-- survey items remain unchanged -->
-      <!-- retained from previous version -->
+      <div class="survey-item"><p>📚 I like to read books during quiet time.</p><div class="options"><label><input type="radio" name="q1"> 😊 Yes</label><label><input type="radio" name="q1"> 😐 Sometimes</label><label><input type="radio" name="q1"> 🙁 No</label></div></div>
+      <div class="survey-item"><p>🧠 Reading helps me learn new things.</p><div class="options"><label><input type="radio" name="q2"> 😊 Yes</label><label><input type="radio" name="q2"> 😐 Sometimes</label><label><input type="radio" name="q2"> 🙁 No</label></div></div>
+      <div class="survey-item"><p>📖 I feel excited when it's time to read.</p><div class="options"><label><input type="radio" name="q3"> 😊 Yes</label><label><input type="radio" name="q3"> 😐 Sometimes</label><label><input type="radio" name="q3"> 🙁 No</label></div></div>
+      <div class="survey-item"><p>👨‍🏫 I like it when my teacher reads aloud.</p><div class="options"><label><input type="radio" name="q4"> 😊 Yes</label><label><input type="radio" name="q4"> 😐 Sometimes</label><label><input type="radio" name="q4"> 🙁 No</label></div></div>
+      <div class="survey-item"><p>📝 I like to read books I choose myself.</p><div class="options"><label><input type="radio" name="q5"> 😊 Yes</label><label><input type="radio" name="q5"> 😐 Sometimes</label><label><input type="radio" name="q5"> 🙁 No</label></div></div>
+    </section>
+
+    <section id="downloads" class="downloads">
+      <h2>Downloadable Survey Materials</h2>
+      <ul>
+        <li><a href="ED9940_K2_Motivation_Survey_with_Icons.docx">📄 Student-Friendly Survey (DOCX)</a></li>
+        <li><a href="K2_Motivation_Survey_Icons_Slides.pptx">📊 Slide Deck for Presentations (PPTX)</a></li>
+        <li><a href="Qualtrics_Emoji_K2_Scaled_Items.csv">📁 Qualtrics Upload Template (CSV)</a></li>
+      </ul>
     </section>
 
     <section id="resources" class="resources">
       <h2>Teacher & Researcher Resources</h2>
       <ul>
-        <li><a href="/mnt/data/ED9940_K2_Motivation_Survey_with_Icons.docx">📄 Printable Survey (DOCX)</a></li>
-        <li><a href="/mnt/data/K2_Motivation_Survey_Icons_Slides.pptx">📊 Slide Deck (PPTX)</a></li>
-        <li><a href="/mnt/data/Qualtrics_Emoji_K2_Scaled_Items.csv">📁 Qualtrics CSV Upload</a></li>
-        <li><a href="#">🧪 MRP–R Background and Validation</a></li>
+        <li><a href="#">🧪 MRP–R Background and Validation (coming soon)</a></li>
+        <li><a href="#">🧑‍🏫 Implementation Guide for Educators (coming soon)</a></li>
+        <li><a href="#">🧠 Literacy Motivation Research Brief (coming soon)</a></li>
       </ul>
     </section>
 
     <section id="submit">
       <h2>Submit Responses</h2>
       <p>This demo site does not collect data, but you can integrate it with Google Forms or Qualtrics to capture real responses.</p>
-      <button onclick="alert('This would submit the survey in a live system.')">🚀 Submit My Answers</button>
+      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfD_form_embed_link/viewform?embedded=true">Loading…</iframe>
+    </section>
+
+    <section id="media" class="media">
+      <h2>Walkthrough Videos & Visuals</h2>
+      <iframe src="https://www.youtube.com/embed/your_video_id" allowfullscreen></iframe>
+      <img src="classroom_graphic.png" alt="Classroom graphic example" style="max-width:100%;margin-top:15px;border-radius:8px;box-shadow:0 2px 5px rgba(0,0,0,0.1);">
     </section>
   </main>
 
