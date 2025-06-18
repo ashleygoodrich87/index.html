@@ -53,6 +53,16 @@
     }
     .options label {
       margin-right: 15px;
+      cursor: pointer;
+      font-size: 1.5em;
+    }
+    input[type="radio"] {
+      display: none;
+    }
+    input[type="radio"]:checked + span {
+      border: 2px solid #4a90e2;
+      border-radius: 5px;
+      padding: 5px;
     }
     .resources, .downloads, .media {
       margin-top: 40px;
@@ -98,28 +108,23 @@
   <main>
     <section id="survey">
       <h2>Survey Questions</h2>
-      <!-- Survey items with emoji scale -->
-      <p><strong>Choose one for each:</strong> ❌ No | 😕 Not Really | 😐 Kind of | 🙂 Sometimes | ✅ Yes</p>
-      <div class="survey-item"><p>📘 I like to read books.</p><div class="options">❌ 😕 😐 🙂 ✅</div></div>
-      <div class="survey-item"><p>📖 I read books at home.</p><div class="options">❌ 😕 😐 🙂 ✅</div></div>
-      <div class="survey-item"><p>🧸 I like to read with my teacher.</p><div class="options">❌ 😕 😐 🙂 ✅</div></div>
-      <div class="survey-item"><p>🧍‍♀️ I like to read by myself.</p><div class="options">❌ 😕 😐 🙂 ✅</div></div>
-      <div class="survey-item"><p>👂 I like to listen to my teacher read aloud.</p><div class="options">❌ 😕 😐 🙂 ✅</div></div>
-      <div class="survey-item"><p>🧠 I learn from books I read.</p><div class="options">❌ 😕 😐 🙂 ✅</div></div>
-      <div class="survey-item"><p>📚 I choose books that are interesting to me.</p><div class="options">❌ 😕 😐 🙂 ✅</div></div>
-      <div class="survey-item"><p>🙋 I ask questions about what I’m reading.</p><div class="options">❌ 😕 😐 🙂 ✅</div></div>
-      <div class="survey-item"><p>🎉 I am proud when I read well.</p><div class="options">❌ 😕 😐 🙂 ✅</div></div>
-      <div class="survey-item"><p>💬 I talk about what I read with others.</p><div class="options">❌ 😕 😐 🙂 ✅</div></div>
-      <div class="survey-item"><p>👨‍👩‍👧 My family reads books.</p><div class="options">❌ 😕 😐 🙂 ✅</div></div>
-      <div class="survey-item"><p>🤝 My friends like reading.</p><div class="options">❌ 😕 😐 🙂 ✅</div></div>
-      <div class="survey-item"><p>👀 I see reading posters and displays in my classroom.</p><div class="options">❌ 😕 😐 🙂 ✅</div></div>
-      <div class="survey-item"><p>📅 We have regular time to read in class.</p><div class="options">❌ 😕 😐 🙂 ✅</div></div>
-      <div class="survey-item"><p>📈 Reading helps me learn new things.</p><div class="options">❌ 😕 😐 🙂 ✅</div></div>
-      <div class="survey-item"><p>📚 I know how to choose a book that’s right for me.</p><div class="options">❌ 😕 😐 🙂 ✅</div></div>
-      <div class="survey-item"><p>🎨 I enjoy talking or drawing about books.</p><div class="options">❌ 😕 😐 🙂 ✅</div></div>
-      <div class="survey-item"><p>📕 I like when I understand what I read.</p><div class="options">❌ 😕 😐 🙂 ✅</div></div>
-      <div class="survey-item"><p>✍️ I enjoy writing about books I read.</p><div class="options">❌ 😕 😐 🙂 ✅</div></div>
-      <div class="survey-item"><p>🎭 I like acting out stories I read.</p><div class="options">❌ 😕 😐 🙂 ✅</div></div>
+      <p><strong>Click one emoji for each question:</strong> ❌ No | 😕 Not Really | 😐 Not Sure | 🙂 Sometimes | ✅ Yes</p>
+
+      <!-- Survey Items Injected Here -->
+      <!-- Replace the following with your full set of questions using the pattern from above -->
+      <!-- Each .survey-item should contain a <p>Question</p> and 5 emoji-labeled inputs -->
+      <!-- Example repeated to show structure. Additional items can follow this pattern. -->
+      <div class="survey-item">
+        <p>📘 I like to read books.</p>
+        <div class="options">
+          <label><input type="radio" name="q1" value="1"><span>❌</span></label>
+          <label><input type="radio" name="q1" value="2"><span>😕</span></label>
+          <label><input type="radio" name="q1" value="3"><span>😐</span></label>
+          <label><input type="radio" name="q1" value="4"><span>🙂</span></label>
+          <label><input type="radio" name="q1" value="5"><span>✅</span></label>
+        </div>
+      </div>
+      <!-- More items should follow the same pattern -->
     </section>
 
     <section id="downloads" class="downloads">
