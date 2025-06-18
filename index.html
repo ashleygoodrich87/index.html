@@ -50,11 +50,17 @@
     }
     .options {
       margin-top: 10px;
+      display: flex;
+      justify-content: space-between;
+      max-width: 400px;
     }
     .options label {
-      margin-right: 15px;
-      cursor: pointer;
-      font-size: 1.5em;
+      text-align: center;
+      font-size: 1.3em;
+      flex: 1;
+    }
+    .options span {
+      display: block;
     }
     input[type="radio"] {
       display: none;
@@ -108,11 +114,7 @@
   <main>
     <section id="survey">
       <h2>Survey Questions</h2>
-      <p><strong>Click one emoji for each question:</strong> ❌ No | 😕 Not Really | 😐 Kind of | 🙂 Sometimes | ✅ Yes</p>
-
-      <!-- BEGIN FULL SURVEY ITEMS -->
-      
-      <!-- Survey items inserted by script -->
+      <p><strong>Click one emoji for each question:</strong></p>
 
       <div id="questionList"></div>
 
@@ -135,19 +137,34 @@
           "📈 I can tell I’m getting better at reading."
         ];
 
+        const responseScale = [
+          { emoji: "❌", text: "No" },
+          { emoji: "😕", text: "Not Really" },
+          { emoji: "😐", text: "Kind of" },
+          { emoji: "🙂", text: "Sometimes" },
+          { emoji: "✅", text: "Yes" }
+        ];
+
         const listContainer = document.getElementById("questionList");
         questions.forEach((q, i) => {
           const number = i + 1;
           const item = document.createElement("div");
           item.className = "survey-item";
+
+          let optionsHTML = "";
+          responseScale.forEach((opt, idx) => {
+            optionsHTML += `
+              <label>
+                <input type="radio" name="q${number}" value="${idx + 1}">
+                <span>${opt.emoji}<br><small>${opt.text}</small></span>
+              </label>
+            `;
+          });
+
           item.innerHTML = `
             <p>${q}</p>
             <div class="options">
-              <label><input type="radio" name="q${number}" value="1"><span>❌</span></label>
-              <label><input type="radio" name="q${number}" value="2"><span>😕</span></label>
-              <label><input type="radio" name="q${number}" value="3"><span>😐</span></label>
-              <label><input type="radio" name="q${number}" value="4"><span>🙂</span></label>
-              <label><input type="radio" name="q${number}" value="5"><span>✅</span></label>
+              ${optionsHTML}
             </div>
           `;
           listContainer.appendChild(item);
